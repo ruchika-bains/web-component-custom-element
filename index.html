@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Hello</title>
+  </head>
+  <body>
+  <div id="app"></div>
+  <button onclick="onAddComment()">Add Comment</button>
+  <!-- <user-comment/> -->
+  <script>
+   function onAddComment(){
+document.body.appendChild(instance);
+    }
+    var commentProto = Object.create(HTMLElement.prototype);
+    commentProto.createdCallback = function(){
+      this.innerHTML = "<h1>Comment</h1><textarea placeholder='Enter your comment..'></textarea><div><button >Submit</button></div> "
+    }
+    var comment = document.registerElement('user-comment',{
+      prototype: commentProto
+    });
+var instance = new comment();
+    </script>
+  </body>
+</html>
